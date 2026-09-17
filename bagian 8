@@ -1,0 +1,109 @@
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    price: 1200,
+    rating: 4.5,
+    stock: 10,
+  },
+
+  {
+    id: 2,
+    title: "Smartphone",
+    price: 800,
+    rating: 4.2,
+    stock: 15,
+  },
+
+  {
+    id: 3,
+    title: "Headphones",
+    price: 100,
+    rating: 4.8,
+    stock: 3,
+  },
+];
+
+// LATIHAN 8.1
+
+function bubbleSort(numbers) {
+  // Salin array agar tidak memutasi
+  // array asli
+  const arr = [...numbers];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      // Jika angka kiri lebih besar
+      // dari angka kanan
+      if (arr[j] > arr[j + 1]) {
+        // Tukar posisi
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+
+  return arr;
+}
+
+// TEST BUBBLE SORT
+
+const numbers = [5, 3, 8, 1, 2];
+
+console.log("===== LATIHAN 8.1 =====");
+
+console.log("Original:", numbers);
+
+console.log("Sorted:", bubbleSort(numbers));
+
+console.log("Original setelah sorting:", numbers);
+
+// LATIHAN 8.2
+
+function sortProducts(products, sortBy) {
+  // Buat salinan agar array asli
+  // tidak berubah
+  const result = [...products];
+
+  // Harga kecil → besar
+  if (sortBy === "price-asc") {
+    return result.sort((a, b) => a.price - b.price);
+  }
+
+  // Harga besar → kecil
+  if (sortBy === "price-desc") {
+    return result.sort((a, b) => b.price - a.price);
+  }
+
+  // Rating tinggi → rendah
+  if (sortBy === "rating") {
+    return result.sort((a, b) => b.rating - a.rating);
+  }
+
+  // Judul A → Z
+  if (sortBy === "title") {
+    return result.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  // Jika sortBy tidak dikenali
+  return result;
+}
+
+// TEST SORT PRODUCTS
+
+console.log("\n===== LATIHAN 8.2 =====");
+
+console.log("Price Ascending:");
+
+console.log(sortProducts(products, "price-asc"));
+
+console.log("Price Descending:");
+
+console.log(sortProducts(products, "price-desc"));
+
+console.log("Rating:");
+
+console.log(sortProducts(products, "rating"));
+
+console.log("Title:");
+
+console.log(sortProducts(products, "title"));

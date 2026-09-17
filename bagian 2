@@ -1,0 +1,46 @@
+const products = [
+  { id: 1, title: "Laptop", price: 1200, category: "laptops", stock: 5 },
+  { id: 2, title: "Smartphone", price: 800, category: "phones", stock: 15 },
+  { id: 3, title: "Headphones", price: 100, category: "audio", stock: 3 },
+];
+
+// LATIHAN 2.1
+
+function findProductById(products, id) {
+  return products.find((product) => product.id === id);
+}
+
+console.log("Hasil pencarian:");
+console.log(findProductById(products, 2));
+
+// LATIHAN 2.2
+
+function getLowStockProducts(products) {
+  return products.filter((product) => product.stock < 10);
+}
+
+console.log("Produk stok menipis:");
+console.log(getLowStockProducts(products));
+
+// LATIHAN 2.3
+
+function updateStock(products, id, newStock) {
+  return products.map((product) => {
+    if (product.id === id) {
+      return {
+        ...product,
+        stock: newStock,
+      };
+    }
+
+    return product;
+  });
+}
+
+const updatedProducts = updateStock(products, 1, 20);
+
+console.log("Data setelah update:");
+console.log(updatedProducts);
+
+console.log("Data asli:");
+console.log(products);

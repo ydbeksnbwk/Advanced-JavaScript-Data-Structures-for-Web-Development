@@ -1,0 +1,99 @@
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    price: 1200,
+    rating: 4.5,
+    stock: 10,
+    category: "laptops",
+  },
+  {
+    id: 2,
+    title: "Smartphone",
+    price: 800,
+    rating: 4.2,
+    stock: 15,
+    category: "phones",
+  },
+  {
+    id: 3,
+    title: "Headphones",
+    price: 100,
+    rating: 4.8,
+    stock: 3,
+    category: "audio",
+  },
+];
+
+// LATIHAN 5.1
+
+function getAverageLaptopPrice(products) {
+  const laptopPrices = products
+    .filter((product) => product.category === "laptops")
+    .map((product) => product.price);
+
+  const totalPrice = laptopPrices.reduce((sum, price) => sum + price, 0);
+
+  if (laptopPrices.length === 0) {
+    return 0;
+  }
+
+  return totalPrice / laptopPrices.length;
+}
+
+console.log("=== LATIHAN 5.1 ===");
+
+console.log("Average laptop price:", getAverageLaptopPrice(products));
+
+// LATIHAN 5.2
+
+function getStatistics(products) {
+  if (products.length === 0) {
+    return {
+      totalProducts: 0,
+      averagePrice: 0,
+      highestPrice: 0,
+      lowestPrice: 0,
+      totalStock: 0,
+      averageRating: 0,
+    };
+  }
+
+  // Total produk
+  const totalProducts = products.length;
+
+  // Harga
+  const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
+
+  const averagePrice = Number((totalPrice / totalProducts).toFixed(2));
+
+  // Harga terbesar dan terkecil
+  const prices = products.map((product) => product.price);
+
+  const highestPrice = Math.max(...prices);
+  const lowestPrice = Math.min(...prices);
+
+  // Total stock
+  const totalStock = products.reduce((sum, product) => sum + product.stock, 0);
+
+  // Rata-rata rating
+  const totalRating = products.reduce(
+    (sum, product) => sum + product.rating,
+    0,
+  );
+
+  const averageRating = Number((totalRating / totalProducts).toFixed(2));
+
+  return {
+    totalProducts,
+    averagePrice,
+    highestPrice,
+    lowestPrice,
+    totalStock,
+    averageRating,
+  };
+}
+
+console.log("=== LATIHAN 5.2 ==");
+
+console.log(getStatistics(products));

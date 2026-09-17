@@ -1,0 +1,79 @@
+function countdown(n) {
+  // BASE CASE
+  // Kondisi untuk menghentikan recursion
+  if (n === 0) {
+    console.log("Selesai!");
+    return;
+  }
+
+  // Tampilkan angka sekarang
+  console.log(n);
+
+  // RECURSIVE CASE
+  // Function memanggil dirinya sendiri
+  countdown(n - 1);
+}
+
+// Test countdown
+console.log("===== CONTOH RECURSION =====");
+
+countdown(5);
+
+// DATA CATEGORY BERTINGKAT
+
+const categories = [
+  {
+    name: "Electronics",
+
+    children: [
+      {
+        name: "Laptop",
+
+        children: [],
+      },
+
+      {
+        name: "Phone",
+
+        children: [
+          {
+            name: "Android",
+
+            children: [],
+          },
+
+          {
+            name: "iPhone",
+
+            children: [],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+// LATIHAN 15.1
+
+function printCategories(categories, depth = 0) {
+  // Loop semua category
+  for (const category of categories) {
+    // Membuat indentasi berdasarkan depth
+    const indentation = "  ".repeat(depth);
+
+    // Tampilkan nama category
+    console.log(indentation + "- " + category.name);
+
+    // Kalau punya children,
+    // masuk lebih dalam
+    if (category.children.length > 0) {
+      printCategories(category.children, depth + 1);
+    }
+  }
+}
+
+// TEST LATIHAN 15.1
+
+console.log("\n===== LATIHAN 15.1 =====");
+
+printCategories(categories);

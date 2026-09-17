@@ -1,0 +1,54 @@
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    price: 1200,
+    category: "laptops",
+  },
+
+  {
+    id: 2,
+    title: "Smartphone",
+    price: 800,
+    category: "phones",
+  },
+
+  {
+    id: 3,
+    title: "Headphones",
+    price: 100,
+    category: "audio",
+  },
+];
+
+// LATIHAN 12.1
+
+function buildProductIndex(products) {
+  const productMap = new Map();
+
+  for (const product of products) {
+    productMap.set(product.id, product);
+  }
+
+  return productMap;
+}
+
+// TEST
+
+const productIndex = buildProductIndex(products);
+
+console.log("===== PRODUCT INDEX =====");
+
+console.log(productIndex);
+
+console.log("\nProduct ID 1:");
+
+console.log(productIndex.get(1));
+
+console.log("\nProduct ID 2:");
+
+console.log(productIndex.get(2));
+
+console.log("\nProduct ID 99:");
+
+console.log(productIndex.get(99));

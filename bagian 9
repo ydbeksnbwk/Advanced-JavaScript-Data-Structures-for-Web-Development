@@ -1,0 +1,83 @@
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    category: "laptops",
+    price: 1200,
+    stock: 10,
+  },
+
+  {
+    id: 2,
+    title: "Gaming Laptop",
+    category: "laptops",
+    price: 1500,
+    stock: 5,
+  },
+
+  {
+    id: 3,
+    title: "Smartphone",
+    category: "phones",
+    price: 800,
+    stock: 15,
+  },
+
+  {
+    id: 4,
+    title: "iPhone",
+    category: "phones",
+    price: 1000,
+    stock: 7,
+  },
+
+  {
+    id: 5,
+    title: "Headphones",
+    category: "audio",
+    price: 100,
+    stock: 3,
+  },
+];
+
+// LATIHAN 9.1
+
+function groupByCategory(products) {
+  return products.reduce((groups, product) => {
+    const category = product.category;
+
+    // Jika kategori belum ada
+    if (!groups[category]) {
+      groups[category] = [];
+    }
+
+    // Masukkan product ke kategori
+    groups[category].push(product);
+
+    return groups;
+  }, {});
+}
+
+// Jalankan grouping
+const groupedProducts = groupByCategory(products);
+
+console.log("===== LATIHAN 9.1 =====");
+
+console.log(groupedProducts);
+
+// LATIHAN 9.2
+
+function getCategorySummary(groupedProducts) {
+  return Object.keys(groupedProducts).map((category) => {
+    return {
+      category: category,
+      totalProducts: groupedProducts[category].length,
+    };
+  });
+}
+
+const summary = getCategorySummary(groupedProducts);
+
+console.log("\n===== LATIHAN 9.2 =====");
+
+console.table(summary);

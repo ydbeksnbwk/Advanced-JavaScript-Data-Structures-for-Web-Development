@@ -1,0 +1,87 @@
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    brand: "Dell",
+    category: "laptops",
+
+    tags: ["computer", "electronics", "office"],
+  },
+
+  {
+    id: 2,
+    title: "Gaming Laptop",
+    brand: "ASUS",
+    category: "laptops",
+
+    tags: ["computer", "gaming", "electronics"],
+  },
+
+  {
+    id: 3,
+    title: "Smartphone",
+    brand: "Samsung",
+    category: "phones",
+
+    tags: ["mobile", "electronics"],
+  },
+
+  {
+    id: 4,
+    title: "iPhone",
+    brand: "Apple",
+    category: "phones",
+
+    tags: ["mobile", "electronics", "premium"],
+  },
+
+  {
+    id: 5,
+    title: "Headphones",
+    brand: "Sony",
+    category: "audio",
+
+    tags: ["audio", "electronics", "music"],
+  },
+
+  {
+    id: 6,
+    title: "Bluetooth Speaker",
+    brand: "Sony",
+    category: "audio",
+
+    tags: ["audio", "music", "wireless"],
+  },
+];
+
+// UNIQUE CATEGORY
+
+function getUniqueCategories(products) {
+  return [...new Set(products.map((product) => product.category))];
+}
+
+// UNIQUE BRAND
+
+function getUniqueBrands(products) {
+  return [...new Set(products.map((product) => product.brand))];
+}
+
+// UNIQUE TAGS
+
+function getUniqueTags(products) {
+  return [...new Set(products.flatMap((product) => product.tags))];
+}
+
+// TEST
+
+console.log("===== UNIQUE CATEGORY =====");
+
+console.log(getUniqueCategories(products));
+
+console.log("\n===== UNIQUE BRAND =====");
+
+console.log(getUniqueBrands(products));
+
+console.log("\n===== UNIQUE TAGS =====");
+
+console.log(getUniqueTags(products));

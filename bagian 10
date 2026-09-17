@@ -1,0 +1,88 @@
+// LATIHAN 10.1
+
+function countFrequency(array) {
+  return array.reduce((counts, item) => {
+    // Jika item belum ada
+    if (counts[item] === undefined) {
+      counts[item] = 1;
+    }
+
+    // Jika item sudah ada
+    else {
+      counts[item] = counts[item] + 1;
+    }
+
+    return counts;
+  }, {});
+}
+
+// TEST DATA
+
+const words = ["laptop", "phone", "laptop", "tablet", "phone", "laptop"];
+
+console.log("===== LATIHAN 10.1 =====");
+
+console.log(countFrequency(words));
+
+// LATIHAN 10.2
+
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    category: "laptops",
+    rating: 4.5,
+  },
+
+  {
+    id: 2,
+    title: "Gaming Laptop",
+    category: "laptops",
+    rating: 4.5,
+  },
+
+  {
+    id: 3,
+    title: "Smartphone",
+    category: "phones",
+    rating: 4.2,
+  },
+
+  {
+    id: 4,
+    title: "iPhone",
+    category: "phones",
+    rating: 4.5,
+  },
+
+  {
+    id: 5,
+    title: "Headphones",
+    category: "audio",
+    rating: 4.8,
+  },
+];
+
+// FREQUENCY CATEGORY
+
+function getCategoryFrequency(products) {
+  const categories = products.map((product) => product.category);
+
+  return countFrequency(categories);
+}
+
+console.log("\n===== FREQUENCY CATEGORY =====");
+
+console.log(getCategoryFrequency(products));
+
+// FREQUENCY RATING
+
+function getRatingFrequency(products) {
+  const ratings = products.map((product) => product.rating);
+
+  return countFrequency(ratings);
+}
+
+console.log("\n===== FREQUENCY RATING =====");
+
+console.log(getRatingFrequency(products));

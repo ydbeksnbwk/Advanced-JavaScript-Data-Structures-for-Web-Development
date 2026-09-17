@@ -1,0 +1,51 @@
+// LATIHAN 14.1
+
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  // Tambahkan item ke belakang queue
+  enqueue(item) {
+    this.items.push(item);
+  }
+
+  // Ambil item paling depan
+  dequeue() {
+    return this.items.shift();
+  }
+
+  // Lihat item paling depan
+  peek() {
+    return this.items[0];
+  }
+}
+
+// TEST QUEUE
+
+const queue = new Queue();
+
+// Tambahkan data
+queue.enqueue("A");
+queue.enqueue("B");
+queue.enqueue("C");
+
+console.log("===== QUEUE =====");
+
+console.log("Isi queue:");
+console.log(queue.items);
+
+console.log("\nPeek:");
+console.log(queue.peek());
+
+console.log("\nDequeue:");
+console.log(queue.dequeue());
+
+console.log("\nIsi queue setelah dequeue:");
+console.log(queue.items);
+
+console.log("\nDequeue lagi:");
+console.log(queue.dequeue());
+
+console.log("\nIsi queue:");
+console.log(queue.items);

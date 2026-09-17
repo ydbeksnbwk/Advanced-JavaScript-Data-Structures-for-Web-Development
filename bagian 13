@@ -1,0 +1,91 @@
+// LATIHAN 13.1
+
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  // Menambahkan data ke atas stack
+  push(item) {
+    this.items.push(item);
+  }
+
+  // Mengambil data paling atas
+  pop() {
+    return this.items.pop();
+  }
+
+  // Melihat data paling atas
+  // tanpa menghapus
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+
+  // Mengecek apakah stack kosong
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
+
+// TEST STACK
+
+const stack = new Stack();
+
+console.log("===== LATIHAN 13.1 =====");
+
+// Push data
+stack.push("laptop");
+stack.push("phone");
+stack.push("tablet");
+
+console.log("Isi stack:");
+console.log(stack.items);
+
+// Peek
+console.log("Peek:");
+console.log(stack.peek());
+
+// Pop
+console.log("Pop:");
+console.log(stack.pop());
+
+// Isi stack setelah pop
+console.log("Isi stack setelah pop:");
+console.log(stack.items);
+
+// LATIHAN 13.2
+
+const searchHistory = new Stack();
+
+// Riwayat pencarian
+searchHistory.push("laptop");
+searchHistory.push("gaming laptop");
+searchHistory.push("asus");
+searchHistory.push("asus tuf");
+
+function undoSearch() {
+  if (searchHistory.isEmpty()) {
+    return null;
+  }
+
+  return searchHistory.pop();
+}
+
+// Test Undo
+
+console.log("=== LATIHAN 13.2 ===");
+
+console.log("Undo 1:");
+console.log(undoSearch());
+
+console.log("Undo 2:");
+console.log(undoSearch());
+
+console.log("Undo 3:");
+console.log(undoSearch());
+
+console.log("Undo 4:");
+console.log(undoSearch());
+
+console.log("Undo 5:");
+console.log(undoSearch());

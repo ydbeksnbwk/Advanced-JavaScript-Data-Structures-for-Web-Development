@@ -1,0 +1,99 @@
+// ==========================================
+// BAGIAN 17 — DOM MANIPULATION
+// ==========================================
+
+// ==========================================
+// DATA PRODUCTS
+// ==========================================
+
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    price: 1200,
+    rating: 4.5,
+    thumbnail: "https://placehold.co/300x200?text=Laptop",
+  },
+
+  {
+    id: 2,
+    title: "Smartphone",
+    price: 800,
+    rating: 4.2,
+    thumbnail: "https://placehold.co/300x200?text=Smartphone",
+  },
+
+  {
+    id: 3,
+    title: "Headphones",
+    price: 100,
+    rating: 4.8,
+    thumbnail: "https://placehold.co/300x200?text=Headphones",
+  },
+
+  {
+    id: 4,
+    title: "Keyboard",
+    price: 75,
+    rating: 4.4,
+    thumbnail: "https://placehold.co/300x200?text=Keyboard",
+  },
+
+  {
+    id: 5,
+    title: "Mouse",
+    price: 50,
+    rating: 4.6,
+    thumbnail: "https://placehold.co/300x200?text=Mouse",
+  },
+];
+
+// ==========================================
+// RENDER PRODUCTS
+// ==========================================
+
+function renderProducts(products) {
+  // Mengambil elemen HTML
+  const container = document.querySelector("#product-list");
+
+  // Kosongkan container
+  container.innerHTML = "";
+
+  // Loop semua product
+  for (const product of products) {
+    // Membuat elemen div baru
+    const card = document.createElement("div");
+
+    // Menambahkan class CSS
+    card.classList.add("product-card");
+
+    // Memasukkan HTML ke dalam card
+    card.innerHTML = `
+            <img
+                src="${product.thumbnail}"
+                alt="${product.title}"
+            >
+
+            <h3>
+                ${product.title}
+            </h3>
+
+            <p>
+                Harga: $${product.price}
+            </p>
+
+            <p>
+                Rating: ⭐ ${product.rating}
+            </p>
+        `;
+
+    // Memasukkan card ke container
+    container.append(card);
+  }
+}
+
+// ==========================================
+// JALANKAN RENDER
+// ==========================================
+
+renderProducts(products);
